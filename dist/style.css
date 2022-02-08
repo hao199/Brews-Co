@@ -3,5 +3,91 @@ canvas {
     top: 0;
     left: 0;
   }
-  
-  
+
+nav{
+  outline: auto white;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+
+.menu li{
+  list-style: none;
+  display: inline-block;
+}
+
+.menu li a{
+  color: white;
+}
+
+
+main {
+    position: absolute;
+    font-size: large;
+    width: 100%;
+    color: white;
+    
+  }
+
+h1, h2, h3, blockquote {
+  font-family: elevon, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+header {
+  background: var(--dark-bg);
+  font-size: 2.5rem;
+  padding: 2rem;
+  outline: auto white;
+}
+
+section {
+  display: flex;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  outline: auto white;
+}
+
+.info{
+  outline: auto white;
+  width: 50%;
+  justify-content: flex-end;   
+}
+
+.production{
+  outline: auto white;
+  width: 50%;
+  justify-content: flex-end;   
+}
+
+.product{
+  outline: auto white;
+  width: 50%;
+  justify-content: flex-end;   
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  outline: auto white;
+  text-align: center;
+}
+
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 4rem;
+  display: inline;
+  line-height: 1;
+}
+
+.light{
+  justify-content: end;
+}
