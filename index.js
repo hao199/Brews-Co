@@ -1,3 +1,5 @@
+import {OBJLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
+import {OrbitControls} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 
 
@@ -14,15 +16,65 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
+camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
-//Shape
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xFF6347});
-const torus = new THREE.Mesh(geometry, material);
 
-scene.add(torus);
+
+//Shape
+const circle = new THREE.Mesh(
+  new THREE.TorusGeometry(10, 3, 16, 100),
+  new THREE.MeshStandardMaterial({ color: 0xFF6347})
+);
+
+scene.add(circle);
+
+circle.position.z = 0;
+circle.position.x = 30;
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({ color: 0xffffff })
+);
+
+scene.add(moon);
+
+moon.position.z = 0;
+moon.position.x = (-30);
+moon.position.y = (-20)
+
+const loader = new OBJLoader();
+
+// load a resource
+loader.load(
+	// resource URL
+	'assets/coffee.obj',
+	// called when resource is loaded
+	function ( object ) {
+
+		scene.add( object );
+    object.position.x = (0);
+    object.position.z = (-100);
+    object.position.y = (-30);
+
+	},
+	// called when loading is in progresses
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+
+
+
 
 
 //Light
@@ -36,6 +88,8 @@ scene.add(pointLight, ambientLight);
 const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200,50);
 scene.add(lightHelper, gridHelper)
+
+const controls = new OrbitControls(camera, renderer.domElement);
 
 //Stars
 function addStar() {
@@ -53,17 +107,31 @@ function addStar() {
   
   Array(200).fill().forEach(addStar);
 
-//Avatar
 
+
+  //background
+
+  //Scroll animation
+
+  /*function moveCamera() {
+    const t = document.body.getBoundingClientRect().top;
+ 
+    camera.position.z = t * -1;
+    camera.position.x = t * -0.001;
+    camera.rotation.y = t * -1.001;
+  }
+  
+  document.body.onscroll = moveCamera;
+  moveCamera();
+  */
 
 //Animate Loop
 function animate() {
     requestAnimationFrame(animate);
 
-    torus.rotation.x += 0.01;
-    torus.rotation.y += 0.005;
-    torus.rotation.z += 0.01;
+ 
 
+    controls.update();
 
     renderer.render(scene, camera);
 }
