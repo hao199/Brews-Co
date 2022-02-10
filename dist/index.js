@@ -54,9 +54,10 @@ loader.load(
 	function ( object ) {
 
 		scene.add( object );
-    object.position.x = (0);
-    object.position.z = (-100);
-    object.position.y = (-30);
+    object.position.z = -100
+    object.position.x = (0)
+    object.position.y = (-20)
+
 
 	},
 	// called when loading is in progresses
