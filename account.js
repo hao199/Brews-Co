@@ -9,7 +9,8 @@ $("#signup-btn").click(function(){
     var username = $("#username").val();
     var email = $("#email").val();
     var password = $("#password").val();
-    var account = {"username": username,"email": email,"password": password};
+    var beans = 0
+    var account = {"username": username,"email": email,"password": password,"beans": beans};
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -45,3 +46,45 @@ function clearField(){
     $("#password").val("");
 
 }
+
+//Get
+$("#login-btn").click(function(){
+  var username = $("#username").val();
+  var password = $("#password").val();
+  console.log(username);
+  console.log(password);
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://brewco-662a.restdb.io/rest/account",
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": "62057be51b941c73ff397a58",
+      "cache-control": "no-cache"
+    }
+  }
+  $.ajax(settings).done(function (response) {
+    // console.log("yes");
+    // console.log(response);
+    // console.log(response.length);
+    var logstatus = false;
+    for (var i=0; i<response.length ; i++){
+      var checkuser = response[i].username;
+      var checkpass = response[i].password;
+      // console.log(checkuser);
+      // console.log(checkpass);
+      if (checkuser === username && checkpass === password){
+        $("#response").html("<div class='alert alert-success'>Log In Successful</div>");
+        clearField();
+        logstatus = True
+        return;
+      }
+      if (logstatus == false){
+        $("#response").html("<div class='alert alert-success'>Try again</div>");
+        clearField();
+      }
+    }
+    //console.log('hi')
+  });
+})
