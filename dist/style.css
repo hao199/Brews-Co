@@ -21,7 +21,7 @@ nav{
 }
 
 .menu li a{
-  color: white;
+  color: black;
 }
 
 
@@ -29,7 +29,7 @@ main {
     position: absolute;
     font-size: large;
     width: 100%;
-    color: white;
+    color: #DB504A;
     
   }
 
