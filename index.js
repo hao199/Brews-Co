@@ -1,66 +1,57 @@
-import {OBJLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
+import {GLTFLoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/GLTFLoader.js';
+import {RGBELoader} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/RGBELoader.js';
 import {OrbitControls} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 
 
-//Set up
+// Set up
 const scene = new THREE.Scene();
+scene.background = new THREE.Color( 0xFEF4E6 );
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 5000);
+//camera.position.xset(0,30,30);
+camera.position.x =(0);
+camera.position.y =(14);
+camera.position.z =(13);
 
 const renderer = new THREE.WebGLRenderer({
+  alpha: true,
+  antialias:true,
   canvas: document.querySelector('#bg'),
 });
 
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-camera.position.setX(-3);
+
 
 renderer.render(scene, camera);
 
+// Load HDR Enviroment Map for metal reflection
+new RGBELoader().setPath('assets/').load('comfy_cafe_4k.hdr',function(hdrmap){
+  hdrmap.mapping = THREE.EquirectangularReflectionMapping;
+  scene.environment = hdrmap;
 
-
-//Shape
-const circle = new THREE.Mesh(
-  new THREE.TorusGeometry(10, 3, 16, 100),
-  new THREE.MeshStandardMaterial({ color: 0xFF6347})
-);
-
-scene.add(circle);
-
-circle.position.z = 0;
-circle.position.x = 30;
-
-const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3,32,32),
-  new THREE.MeshStandardMaterial({ color: 0xffffff })
-);
-
-scene.add(moon);
-
-moon.position.z = 0;
-moon.position.x = (-30);
-moon.position.y = (-20)
-
-const loader = new OBJLoader();
-
-// load a resource
-loader.load(
+  // load model
+  const loader = new GLTFLoader();
+  loader.load(
 	// resource URL
-	'assets/coffee.obj',
-	// called when resource is loaded
-	function ( object ) {
+	'assets/COFFEEGLTF.glb',
+	// called when the resource is loaded
+	function ( glb ) {
 
-		scene.add( object );
-    object.position.z = -100
-    object.position.x = (0)
-    object.position.y = (-20)
-
+		scene.add( glb.scene );
+    const root = glb.scene;
+    
+    root.scale.set(0.1,0.1,0.1);
+    root.position.x = 10;
+    animate(root)
 
 	},
-	// called when loading is in progresses
+	// called while loading is progressing
 	function ( xhr ) {
 
 		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
@@ -74,43 +65,27 @@ loader.load(
 	}
 );
 
+});
 
 
 
 
-//Light
-const pointLight = new THREE.PointLight(0xffffff);
+// Light
+const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-//Helpers
+
+// Helpers
 const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200,50);
-scene.add(lightHelper, gridHelper)
+const axehelper = new THREE.AxesHelper(500);
+scene.add(lightHelper, gridHelper, axehelper)
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-//Stars
-function addStar() {
-    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-    const star = new THREE.Mesh(geometry, material);
-  
-    const [x, y, z] = Array(3)
-      .fill()
-      .map(() => THREE.MathUtils.randFloatSpread(100));
-  
-    star.position.set(x, y, z);
-    scene.add(star);
-  }
-  
-  Array(200).fill().forEach(addStar);
-
-
-
-  //background
 
   //Scroll animation
 
@@ -127,14 +102,12 @@ function addStar() {
   */
 
 //Animate Loop
-function animate() {
-    requestAnimationFrame(animate);
+function animate(root) {
+  requestAnimationFrame(animate);
+  root.rotation.x += 0.005;
 
- 
 
-    controls.update();
+  controls.update();
 
-    renderer.render(scene, camera);
+  renderer.render(scene, camera);
 }
-
-animate()
