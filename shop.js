@@ -79,7 +79,7 @@ function addProductToCart(title,price,productImg){
         }
     }
     var cartBoxContent = `
-                <div class="row cart-box">
+                <div class="row">
                     <div class="col-6">
                     <div class="p-3 border bg-light">
                         <img src="${productImg}" width="200" height="auto" class="img-fluid" alt="">
@@ -111,9 +111,11 @@ function addProductToCart(title,price,productImg){
 function updatetotal(){
     var cartContent = document.getElementsByClassName('cart-content')[0]
     var cartBoxes = cartContent.getElementsByClassName('cart-box')
+    console.log(cartBoxes.length)
     var total = 0;
     for (var i=0; i< cartBoxes.length; i++){
         var cartBox = cartBoxes[i]
+        console.log(cartBox)
         var priceElement = cartBox.getElementsByClassName('cart-price')[0]
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
         var quantity = quantityElement.value
