@@ -9,26 +9,27 @@ const canvas = document.querySelector('canvas')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.Color( 0xFEF4E6 );
 
 
 // Material
-const material = new THREE.MeshToonMaterial({ color: '#ffeded' })
+// const material = new THREE.MeshToonMaterial({ color: '#ffeded' })
 
-// Meshes
-const mesh1 = new THREE.Mesh(
-    new THREE.TorusGeometry(1, 0.4, 16, 60),
-    material
-)
-const mesh2 = new THREE.Mesh(
-    new THREE.ConeGeometry(1, 2, 32),
-    material
-)
-const mesh3 = new THREE.Mesh(
-    new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16),
-    material
-)
+// // Meshes
+// const mesh1 = new THREE.Mesh(
+//     new THREE.TorusGeometry(1, 0.4, 16, 60),
+//     material
+// )
+// const mesh2 = new THREE.Mesh(
+//     new THREE.ConeGeometry(1, 2, 32),
+//     material
+// )
+// const mesh3 = new THREE.Mesh(
+//     new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16),
+//     material
+// )
 
-scene.add(mesh1, mesh2, mesh3)
+// scene.add(mesh1, mesh2, mesh3)
 
 const loader = new GLTFLoader();
 var beans;
@@ -40,10 +41,10 @@ loader.load(
 
 	scene.add( glb.scene );
     beans = glb.scene;
-	beans.position.y = (-objectsDistance * 0)-1.5;
+	beans.position.y = (-objectsDistance * 3.2)-1.5;
 	beans.position.z = 0;
-	beans.position.x = 2;
-	beans.scale.set(0.015,0.015,0.015);
+	beans.position.x = -1.5;
+	beans.scale.set(0.011,0.011,0.011);
 
 	tick()
 
@@ -78,10 +79,11 @@ new RGBELoader().setPath('assets/').load('comfy_cafe_4k.hdr',function(hdrmap){
 		scene.add( glb.scene );
     const root = glb.scene;
     
-	root.position.y = (-objectsDistance * 2)-1.5;
+	root.position.y = (-objectsDistance * 0)-2;
 	root.position.z = -2;
 	root.position.x = 2;
-	root.scale.set(0.05,0.05,0.05);
+	root.rotation.y = -0.6;
+	root.scale.set(0.038,0.038,0.038);
  
 
 	},
@@ -146,9 +148,9 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 const objectsDistance = 4
-mesh1.position.y = - objectsDistance * 0
-mesh2.position.y = - objectsDistance * 1
-mesh3.position.y = - objectsDistance * 2
+// mesh1.position.y = - objectsDistance * 0
+// mesh2.position.y = - objectsDistance * 1
+// mesh3.position.y = - objectsDistance * 2
 
 let scrollY = window.scrollY
 

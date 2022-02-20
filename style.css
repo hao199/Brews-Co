@@ -1,39 +1,6 @@
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-
-.section
-{
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    font-family: 'Cabin', sans-serif;
-    color: #ffeded;
-    text-transform: uppercase;
-    font-size: 7vmin;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-
-.cart-quantity{
-  border: 1px solid black;
-  outline-color: black;
-  width: 2.4rem;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.cart-remove{
-  cursor:pointer;
-}
-
-body{
+/* body{
   min-height: calc(3000px + 100vh);
+  color: #FFE3AA; 
 }
 
 
@@ -55,73 +22,79 @@ nav{
 
 .menu li a{
   color: black;
+} */
+
+
+/* General */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+span{
+  color: #856E27;
+}
+
+h1{
+  font-size: 5rem;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+/* Site Banner */
+
+.site-banner .site-title h1{
+  padding: 20% 0 35%;
 }
 
 
-main {
-    position: absolute;
-    font-size: large;
-    width: 100%;
-    color: #DB504A;
-    
-  }
+/* Blockquote */
 
-h1, h2, h3, blockquote {
-  font-family: elevon, sans-serif;
-  font-weight: 700;
-  font-style: normal;
+blockquote{
+  color: white;
+  padding: 10 0 5%;
 }
 
-header {
-  background: var(--dark-bg);
-  font-size: 2.5rem;
-  padding: 2rem;
-  outline: auto white;
-  width: 50%;
+blockquote h2{
+  background-color: #856E27;
+  padding: 5% 0 5%;
 }
 
-section {
-  display: flex;
-  padding: 1rem;
-  background: var(--dark-bg);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  outline: auto white;
+/* Guide */
+.guide-container .row{
+  margin: 4% 0 5%;
 }
 
-.info{
-  outline: auto white;
-  width: 50%;
-  justify-content: flex-end;   
+.guide-text p{
+  font-size: medium;
 }
 
-.production{
-  outline: auto white;
-  width: 50%;
-  justify-content: flex-end;   
+.guide-container h2{
+  color: #856E27;
 }
 
-.product{
-  outline: auto white;
-  width: 50%;
-  justify-content: flex-end;   
+/* Product */
+.product-container .row{
+  margin: 13% 0 15%;
 }
 
-blockquote {
-  margin: 100;
-  padding: 0;
-  outline: auto white;
+.product-container h2{
+  color: #856E27;
+}
+
+/* Cart */
+.cart-quantity{
+  border: 1px solid black;
+  outline-color: black;
+  width: 2.4rem;
   text-align: center;
+  font-size: 1rem;
 }
 
-blockquote p {
-  color: black;
-  background-color: white;
-  font-size: 4rem;
-  display: inline;
-  line-height: 1;
+.cart-remove{
+  cursor:pointer;
 }
 
-.light{
-  justify-content: end;
-}
