@@ -7,10 +7,13 @@ canvas {
 @font-face { 
   font-family: brewscofont;
   src: url(SatrevaNeue-lgJ6V.ttf);
-
 }
 
 h2 {
+  font-family: brewscofont;
+}
+
+footer {
   font-family: brewscofont;
 }
 
