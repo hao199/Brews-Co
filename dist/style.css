@@ -15,6 +15,7 @@ h2 {
 
 footer {
   font-family: brewscofont;
+  font-size: 20px;
 }
 
 .section
@@ -31,6 +32,14 @@ footer {
     padding-right: 10%;
 }
 
+.guide-h2 {
+  font-family: brewscofont;
+  font-size: 60px;
+  text-align: center;
+}
+.roast-align {
+  text-align: center;
+}
 
 .cart-quantity{
   border: 1px solid black;
