@@ -111,3 +111,20 @@ blockquote h2{
   cursor:pointer;
 }
 
+/* Profile */
+.profile-header{
+  margin-top: 2%;
+}
+
+.profile-welcome h3{
+  color: #856E27;
+}
+
+.profile-container{
+  margin-top: 2%;
+}
+
+.profile-details{
+  background-color: #856E27;
+  padding: 2% 0 4%;
+}
