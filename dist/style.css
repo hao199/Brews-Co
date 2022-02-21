@@ -77,6 +77,18 @@ blockquote h2{
   color: #856E27;
 }
 
+.guide-h2 {
+  font-size: 50px;
+  text-align: center;
+  padding: 45px;
+}
+.roast-align {
+  text-align: center;
+}
+
+.guide-indv {
+  padding: 20px;
+}
 /* Product */
 .product-container .row{
   margin: 13% 0 15%;
