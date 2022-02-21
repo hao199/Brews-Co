@@ -2,25 +2,32 @@
 var title = '';
 var nextTitle = '';
 var expAway = 0;
+var percentage = 0;
 var userExp = localStorage.getItem('experience');
 function checkUserTitle(){
     if(userExp < 150){
         title = 'CoffeeCub'
         nextTitle = 'Caffeine Lover'
         expAway = 150 - userExp
+        percentage = userExp / 150 * 100
+        percentage = 'width:' + percentage + '%'
+        document.getElementsByClassName("progress-bar")[0].setAttribute("style", percentage);
         return title,expAway,nextTitle;
     }
-    else if(userExp > 150 && userExp < 300){
+    else if(userExp >= 150 && userExp < 300){
         title = 'Caffeine Lover'
         nextTitle = 'Caffeholic'
         expAway = 300 - userExp
+        percentage = (userExp - 150) / 150 * 100 
+        percentage = 'width:' + percentage + '%'
+        document.getElementsByClassName("progress-bar")[0].setAttribute("style", percentage);
         return title,expAway,nextTitle;
     }
     else{
         title = 'Caffeholic'
         nextTitle = "Completed"
-        expAway = 150 - userExp
-        return title,expAway,nextTitle;
+        document.getElementsByClassName("progress-bar")[0].setAttribute("style", "width:100%");
+        return title,nextTitle;
     } 
 }
 
@@ -28,6 +35,9 @@ function checkUserTitle(){
 checkUserTitle();
 var profileTitle = document.getElementById('profile-title');
 profileTitle.textContent = title;
+
+var profileXp = document.getElementById('profile-xp');
+profileXp.textContent = 'Total XP: ' +userExp;
 
 if(nextTitle == 'Completed'){
     var profileProgress = document.getElementById('profile-progress');
@@ -38,8 +48,8 @@ else{
     profileProgress.textContent = "You're " + expAway + ' xp towards ' + nextTitle;
 }
 
-progressBar = document.getElementById("progress")
-progressBar.setAttribute('class','yes')
+
+
 
 //Get UserName and Display
 var userName = localStorage.getItem('username');
