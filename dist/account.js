@@ -77,7 +77,15 @@ $("#login-btn").click(function(){
       if (checkuser === username && checkpass === password){
         $("#response").html("<div class='alert alert-success'>Log In Successful</div>");
         clearField();
-        logstatus = True
+        logstatus = true;
+        var email = response[i].email;
+        var beans = response[i].beans;
+
+        // Store data
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('beans', beans);
+        window.location.href = '/dist/shop.html';
         return;
       }
       if (logstatus == false){
