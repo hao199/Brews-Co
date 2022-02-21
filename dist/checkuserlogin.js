@@ -1,10 +1,10 @@
 function checkuserlogin(){
     var currentUser = localStorage.getItem('username');
     if(currentUser == null){
-      window.location.href = '/dist/login.html';
+      window.location.href = 'login.html';
     }
     else{
-      window.location.href = '/dist/profile.html';
+      window.location.href = 'profile.html';
     }
   }
 
@@ -12,7 +12,7 @@ function logout(){
     localStorage.removeItem('username');
     localStorage.removeItem('beans');
     localStorage.removeItem('experience');
-    window.location.href = '/dist/index.html'
+    window.location.href = 'index.html'
 }
 
 
