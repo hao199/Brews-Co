@@ -8,7 +8,6 @@ if (document.readyState == 'loading'){
 //Activate remove item from cart
 function ready(){
     var removeCartButtons = document.getElementsByClassName('cart-remove')
-    console.log(removeCartButtons)
     for (var i=0; i<removeCartButtons.length; i++){
         var button = removeCartButtons[i]
         button.addEventListener('click', removeCartItem)
@@ -62,7 +61,7 @@ function addCartClicked(event){
     var button = event.target
     var shopProducts = button.parentElement.parentElement
     var title = shopProducts.getElementsByClassName('product-title')[0].innerText
-    var price = shopProducts.getElementsByClassName('amount')[0].innerText
+    var price = shopProducts.getElementsByClassName('price')[0].innerText
     var productImg = shopProducts.getElementsByClassName('product-img')[0].src;
     addProductToCart(title,price,productImg);
     updatetotal();
@@ -86,9 +85,9 @@ function addProductToCart(title,price,productImg){
                     </div>
                     </div>
                     <div class="col-4">
-                    <div class="cart-product-title">${title}</div>
-                    <div class="cart-price">${price}</div>
-                    <input type="number" value="1" class="cart-quantity">
+                        <div class="cart-product-title">${title}</div>
+                        <div class="cart-price">${price}</div>
+                        <input type="number" value="1" class="cart-quantity">
                     </div>
                     <div class="col-2">
                     <i class="bi bi-trash-fill cart-remove"></i>
@@ -100,8 +99,8 @@ function addProductToCart(title,price,productImg){
     cartShopBox
         .getElementsByClassName('cart-remove')[0]
         .addEventListener('click', removeCartItem);
-    cartShopBox.
-        getElementsByClassName('cart-quantity')[0]
+    cartShopBox
+        .getElementsByClassName('cart-quantity')[0]
         .addEventListener('change', quantityChanged);
 }
 
@@ -111,19 +110,18 @@ function addProductToCart(title,price,productImg){
 function updatetotal(){
     var cartContent = document.getElementsByClassName('cart-content')[0]
     var cartBoxes = cartContent.getElementsByClassName('cart-box')
-    console.log(cartBoxes.length)
     var total = 0;
     for (var i=0; i< cartBoxes.length; i++){
         var cartBox = cartBoxes[i]
-        console.log(cartBox)
         var priceElement = cartBox.getElementsByClassName('cart-price')[0]
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
-        var quantity = quantityElement.value
         var price = parseFloat(priceElement.innerText.replace('$',''))
-        total = total + (price * quantity)
+        var quantity = quantityElement.value
+        total = total + price * quantity
     }  
     //if price is cents
     total = Math.round(total * 100) / 100
 
     document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 }
+

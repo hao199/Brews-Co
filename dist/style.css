@@ -98,7 +98,7 @@ blockquote h2{
   margin-top: 2%;
 }
 
-.profile-welcome h3{
+.profile-welcome h1{
   color: #856E27;
 }
 
@@ -109,4 +109,12 @@ blockquote h2{
 .profile-details{
   background-color: #856E27;
   padding: 2% 0 4%;
+}
+
+.reward-container{
+  background-color: whitesmoke;
+}
+
+.reward-container h3{
+  color: #856E27;
 }
