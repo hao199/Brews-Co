@@ -41,7 +41,7 @@ loader.load(
 
 	scene.add( glb.scene );
     beans = glb.scene;
-	beans.position.y = (-objectsDistance * 3.2)-1.5;
+	beans.position.y = (-objectsDistance * 2.5)-1.5;
 	beans.position.z = 0;
 	beans.position.x = -1.5;
 	beans.scale.set(0.011,0.011,0.011);
@@ -79,11 +79,11 @@ new RGBELoader().setPath('assets/').load('comfy_cafe_4k.hdr',function(hdrmap){
 		scene.add( glb.scene );
     const root = glb.scene;
     
-	root.position.y = (-objectsDistance * 0)-2;
+	root.position.y = (-objectsDistance * 0)-1.2;
 	root.position.z = -2;
 	root.position.x = 2;
 	root.rotation.y = -0.6;
-	root.scale.set(0.038,0.038,0.038);
+	root.scale.set(0.033,0.033,0.033);
  
 
 	},

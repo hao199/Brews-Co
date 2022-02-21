@@ -1,31 +1,3 @@
-/* body{
-  min-height: calc(3000px + 100vh);
-  color: #FFE3AA; 
-}
-
-
-nav{
-  outline: auto white;
-}
-
-.navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 80px;
-}
-
-.menu li{
-  list-style: none;
-  display: inline-block;
-}
-
-.menu li a{
-  color: black;
-} */
-
-
-
 /* General */
 canvas {
     position: fixed;
@@ -33,17 +5,24 @@ canvas {
     left: 0;
 }
 
+body{
+  background-color:#FEF4E6;
+}
+
 span{
   color: #856E27;
 }
 
-h1{
-  font-size: 5rem;
+
+.body{
+  background-color: #FEF4E6;
 }
 
-h2{
+/* Home */
+.home h2{
   font-size: 3rem;
 }
+
 
 /* Site Banner */
 
@@ -51,6 +30,9 @@ h2{
   padding: 20% 0 35%;
 }
 
+.banner-header h1{
+  font-size: 5rem;
+}
 
 /* Blockquote */
 
@@ -116,7 +98,7 @@ blockquote h2{
   margin-top: 2%;
 }
 
-.profile-welcome h3{
+.profile-welcome h1{
   color: #856E27;
 }
 
@@ -127,4 +109,12 @@ blockquote h2{
 .profile-details{
   background-color: #856E27;
   padding: 2% 0 4%;
+}
+
+.reward-container{
+  background-color: whitesmoke;
+}
+
+.reward-container h3{
+  color: #856E27;
 }
