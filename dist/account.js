@@ -10,7 +10,8 @@ $("#signup-btn").click(function(){
     var email = $("#email").val();
     var password = $("#password").val();
     var beans = 0
-    var account = {"username": username,"email": email,"password": password,"beans": beans};
+    var experience = 0
+    var account = {"username": username,"email": email,"password": password,"beans": beans,"experience": experience};
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -80,12 +81,14 @@ $("#login-btn").click(function(){
         logstatus = true;
         var email = response[i].email;
         var beans = response[i].beans;
+        var experience = response[i].experience;
 
         // Store data
         localStorage.setItem('username', username);
         localStorage.setItem('email', email);
         localStorage.setItem('beans', beans);
-        window.location.href = '/dist/shop.html';
+        localStorage.setItem('experience', experience)
+        window.location.href = '/dist/index.html';
         return;
       }
       if (logstatus == false){
