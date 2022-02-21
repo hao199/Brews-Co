@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Brews Co.</title>
 </head>
+<script type="module" src="checkuserlogin.js"></script>
 <body class="Home">
   <canvas id="bg"></canvas>
 
@@ -34,7 +35,7 @@
             <a class="nav-link" href="#">Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" id="profile" href="#" onclick="checkuserlogin()">Profile</a>
           </li>
         </ul>
       </div>
@@ -93,7 +94,9 @@
             <p>Confused on the differences between the many types of roast? Find out what makes each roast special.</p>
           </div>
           <div class="">
-            <button class="btn btn-dark">Find Out</button>
+            <a href="knowroast.html" >
+              <button type="button" class="btn btn-dark">Find Out</button>
+           </a>  
           </div>
         </div>
       </div>
@@ -127,7 +130,9 @@
             <p>Brew better coffee at home! How to get started? You are in the right place. We share the most practical coffee tips and guides for anyone who wants to brew coffee at home!</p>
           </div>
           <div class="">
-            <button class="btn btn-dark">Find Out</button>
+            <a href="brewing.html" >
+              <button type="button" class="btn btn-dark">Find Out</button>
+           </a>  
           </div>
         </div>
       </div>

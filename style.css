@@ -25,6 +25,7 @@ nav{
 } */
 
 
+
 /* General */
 canvas {
     position: fixed;
@@ -76,6 +77,18 @@ blockquote h2{
   color: #856E27;
 }
 
+.guide-h2 {
+  font-size: 50px;
+  text-align: center;
+  padding: 45px;
+}
+.roast-align {
+  text-align: center;
+}
+
+.guide-indv {
+  padding: 20px;
+}
 /* Product */
 .product-container .row{
   margin: 13% 0 15%;
@@ -98,3 +111,20 @@ blockquote h2{
   cursor:pointer;
 }
 
+/* Profile */
+.profile-header{
+  margin-top: 2%;
+}
+
+.profile-welcome h3{
+  color: #856E27;
+}
+
+.profile-container{
+  margin-top: 2%;
+}
+
+.profile-details{
+  background-color: #856E27;
+  padding: 2% 0 4%;
+}
