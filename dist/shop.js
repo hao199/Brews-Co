@@ -32,7 +32,30 @@ function ready(){
 
 //Buy Button
 function buyButtonClicked(){
-    alert('Transaction Completed')
+    var cartContent = document.getElementsByClassName('cart-content')[0]
+    var cartBoxes = cartContent.getElementsByClassName('cart-box')
+    var earnBeans = 0
+    var earnXp = 0
+    for (var i=0; i< cartBoxes.length; i++){
+        var cartBox = cartBoxes[i]
+        var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
+        var quantity = quantityElement.value
+        var coffeeBeans = quantity * 10
+        var experience = quantity * 10
+        var userBeans = localStorage.getItem('beans');
+        var userExperience = localStorage.getItem('experience');
+        var latestBeans = Number(userBeans) + coffeeBeans
+        var latestExperience = Number(userExperience) + experience
+        localStorage.setItem('beans', latestBeans);
+        localStorage.setItem('experience', latestExperience);
+        earnBeans = earnBeans + coffeeBeans;
+        earnXp = earnXp + experience;
+    }
+    console.log(earnBeans)
+    console.log(earnXp)
+
+
+    alert('Transaction Completed! You have earned ' + earnBeans + ' Coffee Beans and ' + earnXp + ' XP')
     var cartContent = document.getElementsByClassName('cart-content')[0]
     while (cartContent.hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild)

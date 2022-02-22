@@ -12,6 +12,7 @@ function logout(){
     localStorage.removeItem('username');
     localStorage.removeItem('beans');
     localStorage.removeItem('experience');
+    localStorage.removeItem('email');
     window.location.href = 'index.html'
 }
 

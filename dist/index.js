@@ -41,7 +41,7 @@ loader.load(
 
 	scene.add( glb.scene );
     beans = glb.scene;
-	beans.position.y = (-objectsDistance * 2.5)-1.5;
+	beans.position.y = (-objectsDistance * 2.3)-1.5;
 	beans.position.z = 0;
 	beans.position.x = -1.5;
 	beans.scale.set(0.011,0.011,0.011);
@@ -148,9 +148,6 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 const objectsDistance = 4
-// mesh1.position.y = - objectsDistance * 0
-// mesh2.position.y = - objectsDistance * 1
-// mesh3.position.y = - objectsDistance * 2
 
 let scrollY = window.scrollY
 
