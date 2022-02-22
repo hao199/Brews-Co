@@ -88,7 +88,7 @@ $("#login-btn").click(function(){
         localStorage.setItem('email', email);
         localStorage.setItem('beans', beans);
         localStorage.setItem('experience', experience)
-        window.location.href = '/dist/index.html';
+        window.location.href = 'index.html';
         return;
       }
       if (logstatus == false){
