@@ -80,6 +80,10 @@ blockquote h2{
   color: #856E27;
 }
 
+.shop-container h3{
+  color: #856E27;
+}
+
 /* Cart */
 .cart-quantity{
   border: 1px solid black;
