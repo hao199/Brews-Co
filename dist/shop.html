@@ -10,6 +10,7 @@
     <title>Shop</title>
 </head>
 <script type="module" src="checkuserlogin.js"></script>
+
 <body>
   <!--Navigation Bar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -162,6 +163,19 @@
             <div class="row">
               <div class="col">
                 <button type="button" class="btn btn-primary buy-button">Buy Now</button>
+              </div>
+              <div class="col">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Use Rewards
+                  </button>
+                  <ul class="dropdown-menu" id="list" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" id="reward1" href="#">Reward1[0]</a></li>
+                    <li><a class="dropdown-item" id="reward2" href="#">Reward2[0]</a></li>
+                    <li><a class="dropdown-item" id="reward3" href="#">Reward3[0]</a></li>
+                    <li><a class="dropdown-item" id="reward4" href="#">Reward4[0]</a></li>
+                  </ul>
+                </div>   
               </div>
               <div class="col text-end">
                 <div class="total-title">Total</div>

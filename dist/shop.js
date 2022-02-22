@@ -125,3 +125,61 @@ function updatetotal(){
     document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 }
 
+//Check User Redeemed Rewards
+function checkRewardsRedeem(){
+    for (var i=1; i<=4; i++){
+        var rewardNum = 'reward' + (i)
+        var li = document.getElementById(rewardNum);
+        if(i == 1){
+            var rewardName = '2 Dollars Off'
+            li.textContent = rewardName + '[0]'
+        
+        }
+        if(i == 2){
+            var rewardName = '5 Dollars Off'
+            li.textContent = rewardName + '[0]'
+        }
+        if(i == 3){
+            var rewardName = '1 Coffee Bean Free'
+            li.textContent = rewardName + '[0]'
+        }
+        if(i == 4){
+            var rewardName = '2 Coffee Bean Free'
+            li.textContent = rewardName + '[0]'
+        }
+    
+        if(localStorage.getItem(rewardNum) == 1){
+            li.textContent = rewardName + '[1]'
+        }
+    }
+}
+
+var button = document.getElementById('dropdownMenuButton1')
+button.addEventListener('click', checkRewardsRedeem)
+
+
+function useReward1(){
+    console.log('yes')
+}
+
+
+var reward1 = document.getElementById('reward1')
+reward1.addEventListener('click', useReward1)
+
+
+
+
+// function ListenClick(){
+//     for (var i=1; i<=4; i++){
+//         var rewardNum = 'reward' + (i)
+//         console.log('bo')
+//         if(document.getElementById(rewardNum).buttonClicked == true)
+//         {
+//             console.log('yes')
+//             console.log(i)
+//         }
+//     }
+// }
+
+
+// ListenClick()
