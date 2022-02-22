@@ -41,7 +41,7 @@ loader.load(
 
 	scene.add( glb.scene );
     beans = glb.scene;
-	beans.position.y = (-objectsDistance * 2.8)-1.5;
+	beans.position.y = (-objectsDistance * 2.6)-1.5;
 	beans.position.z = 0;
 	beans.position.x = -1.5;
 	beans.scale.set(0.011,0.011,0.011);
