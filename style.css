@@ -52,7 +52,7 @@ blockquote h2{
 }
 
 .guide-text p{
-  font-size: medium;
+  font-size: x-large;
 }
 
 .guide-container h2{
@@ -77,6 +77,10 @@ blockquote h2{
 }
 
 .product-container h2{
+  color: #856E27;
+}
+
+.shop-container h3{
   color: #856E27;
 }
 

@@ -76,7 +76,7 @@ $("#login-btn").click(function(){
       // console.log(checkuser);
       // console.log(checkpass);
       if (checkuser === username && checkpass === password){
-        $("#response").html("<div class='alert alert-success'>Log In Successful</div>");
+        $("#response").html("<div class='alert alert-success mt-2'>Log In Successful</div>");
         clearField();
         logstatus = true;
         var email = response[i].email;
@@ -92,7 +92,7 @@ $("#login-btn").click(function(){
         return;
       }
       if (logstatus == false){
-        $("#response").html("<div class='alert alert-success'>Try again</div>");
+        $("#response").html("<div class='alert alert-danger mt-2'>Try again</div>");
         clearField();
       }
     }
