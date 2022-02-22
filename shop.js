@@ -32,7 +32,30 @@ function ready(){
 
 //Buy Button
 function buyButtonClicked(){
-    alert('Transaction Completed')
+    var cartContent = document.getElementsByClassName('cart-content')[0]
+    var cartBoxes = cartContent.getElementsByClassName('cart-box')
+    var earnBeans = 0
+    var earnXp = 0
+    for (var i=0; i< cartBoxes.length; i++){
+        var cartBox = cartBoxes[i]
+        var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
+        var quantity = quantityElement.value
+        var coffeeBeans = quantity * 10
+        var experience = quantity * 10
+        var userBeans = localStorage.getItem('beans');
+        var userExperience = localStorage.getItem('experience');
+        var latestBeans = Number(userBeans) + coffeeBeans
+        var latestExperience = Number(userExperience) + experience
+        localStorage.setItem('beans', latestBeans);
+        localStorage.setItem('experience', latestExperience);
+        earnBeans = earnBeans + coffeeBeans;
+        earnXp = earnXp + experience;
+    }
+    console.log(earnBeans)
+    console.log(earnXp)
+
+
+    alert('Transaction Completed! You have earned ' + earnBeans + ' Coffee Beans and ' + earnXp + ' XP')
     var cartContent = document.getElementsByClassName('cart-content')[0]
     while (cartContent.hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild)
@@ -125,3 +148,61 @@ function updatetotal(){
     document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 }
 
+//Check User Redeemed Rewards
+function checkRewardsRedeem(){
+    for (var i=1; i<=4; i++){
+        var rewardNum = 'reward' + (i)
+        var li = document.getElementById(rewardNum);
+        if(i == 1){
+            var rewardName = '2 Dollars Off'
+            li.textContent = rewardName + '[0]'
+        
+        }
+        if(i == 2){
+            var rewardName = '5 Dollars Off'
+            li.textContent = rewardName + '[0]'
+        }
+        if(i == 3){
+            var rewardName = '1 Coffee Bean Free'
+            li.textContent = rewardName + '[0]'
+        }
+        if(i == 4){
+            var rewardName = '2 Coffee Bean Free'
+            li.textContent = rewardName + '[0]'
+        }
+    
+        if(localStorage.getItem(rewardNum) == 1){
+            li.textContent = rewardName + '[1]'
+        }
+    }
+}
+
+var button = document.getElementById('dropdownMenuButton1')
+button.addEventListener('click', checkRewardsRedeem)
+
+
+function useReward1(){
+    console.log('yes')
+}
+
+
+var reward1 = document.getElementById('reward1')
+reward1.addEventListener('click', useReward1)
+
+
+
+
+// function ListenClick(){
+//     for (var i=1; i<=4; i++){
+//         var rewardNum = 'reward' + (i)
+//         console.log('bo')
+//         if(document.getElementById(rewardNum).buttonClicked == true)
+//         {
+//             console.log('yes')
+//             console.log(i)
+//         }
+//     }
+// }
+
+
+// ListenClick()
