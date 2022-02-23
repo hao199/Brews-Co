@@ -3,6 +3,9 @@
 <hr>
 
 ## Introduction
+
+Github link: https://github.com/hao199/Brews-Co
+
 Brews Co. is an e-commerce company that promotes the activity of brewing coffee at home and sells high and various types of quality beans. This website provides consumers to platform is learn more about the art of brewing coffee and also advertise our coffee beans to them. 
 
 The Brews Co. Website includes gamification features to attract more consumers. User can create accounts and earn attractive prizes.
